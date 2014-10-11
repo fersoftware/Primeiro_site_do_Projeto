@@ -1,12 +1,52 @@
+<?
+//correção, deixando menu ativo na pagina certa
+
+switch($_GET['p']){
+
+    case "Home":
+}
+
+
+
+?>
 <div class="navbar">
     <div class="navbar-inner">
         <div class="container">
             <ul class="nav">
-                <li class="active"><a href="?p=home">Home</a></li>
-                <li><a href="?p=empresa">Empresa</a></li>
-                <li><a href="?p=produtos">Produtos</a></li>
-                <li><a href="?p=servicos">Serviços</a></li>
-                <li><a href="?p=contatos">Contatos</a></li>
+                <?
+
+                $pagina = $_GET['p'];
+
+                //Se a pagina nao existir, nao ativa o menu
+                if(!file_exists('includes/'.$pagina.'.php'))
+                {
+                    $active_page = -1;
+                }
+
+                if(!$active_page == -1)
+                {
+                    if(isset($_GET['a']))
+                    {
+                        $active_page = $_GET['a'];
+                    }
+                }
+
+                $pages = array();
+                $pages[0] = '<a href="?p=home&a=0">Home</a>';
+                $pages[1] = '<a href="?p=produtos&a=1">Produtos</a>';
+                $pages[2] = '<a href="?p=servicos&a=2">Servicos</a>';
+                $pages[3] = '<a href="?p=contatos&a=3">Contatos</a>';
+
+
+                foreach($pages as $page=>$content){
+                    $li_str = '<li>';
+                    if($page == $active_page){
+                        $li_str = '<li class="active">';
+                    }
+                    $li_str .= $content.'</li>';
+                    echo $li_str;
+                }
+                ?>
             </ul>
         </div>
     </div>
