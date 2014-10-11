@@ -70,11 +70,8 @@ if(!isset($esconda)) {
 
 
     function toggle_visibility(x) {
-
         var e = document.getElementById(x);
         e.style.display = 'none';
-        alert('preula');
-        return;
     }
 
 
