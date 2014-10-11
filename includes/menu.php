@@ -15,10 +15,10 @@ switch($_GET['p']){
             <ul class="nav">
                 <?
 
-                $pagina = $_GET['p'];
+                $pag = $_GET['p'];
 
                 //Se a pagina nao existir, nao ativa o menu
-                if(!file_exists('includes/'.$pagina.'.php'))
+                if(!file_exists('includes/'.$pag.'.php'))
                 {
                     $active_page = -1;
                 }

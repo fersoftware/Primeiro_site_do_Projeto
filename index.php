@@ -1,8 +1,9 @@
 <?php
-
-$pagina = $_GET['p'];
-
+// Se a variavel existir ou não estiver em branco mostra a página escolhida, caso contrario
+// mostra a pagina home por padrao
+if(!isset($_GET['p']) || strlen($_GET['p']) == 0 ) $pagina = 'home';
 ?>
+
 <!doctype html>
 <html lang="pt">
 <head>
@@ -19,22 +20,15 @@ $pagina = $_GET['p'];
     </div>
 
     <?
-    // Se a variavel existir ou não estiver em branco mostra a página escolhida, caso contrario
-    // mostra a pagina home por padrao
-    if(!isset($pagina))
-    {
-        $pagina = 'home';
-    }
-
     //Se a pagina nao existir, exibe que a pagina nao foi encontrada
     if(!file_exists('includes/'.$pagina.'.php'))
     {
-       $pagina = 'pagina-nao-encontrada';
+        $pagina = 'pagina-nao-encontrada';
     }
 
     require_once('includes/'.$pagina.'.php');
 
-     ?>
+    ?>
 
     <hr>
     <? require_once('includes/rodape.php'); ?>
@@ -42,4 +36,3 @@ $pagina = $_GET['p'];
 </div>
 </body>
 </html>
-
