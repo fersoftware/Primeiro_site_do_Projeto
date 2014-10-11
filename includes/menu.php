@@ -33,9 +33,10 @@ switch($_GET['p']){
 
                 $pages = array();
                 $pages[0] = '<a href="?p=home&a=0">Home</a>';
-                $pages[1] = '<a href="?p=produtos&a=1">Produtos</a>';
-                $pages[2] = '<a href="?p=servicos&a=2">Servicos</a>';
-                $pages[3] = '<a href="?p=contatos&a=3">Contatos</a>';
+                $pages[1] = '<a href="?p=empresas&a=1">Empresa</a>';
+                $pages[2] = '<a href="?p=produtos&a=2">Produtos</a>';
+                $pages[3] = '<a href="?p=servicos&a=3">Servicos</a>';
+                $pages[4] = '<a href="?p=contatos&a=4">Contatos</a>';
 
 
                 foreach($pages as $page=>$content){
