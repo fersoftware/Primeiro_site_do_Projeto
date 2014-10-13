@@ -1,7 +1,16 @@
 <?php
+date_default_timezone_set('America/Sao_Paulo');
+
 // Se a variavel existir ou não estiver em branco mostra a página escolhida, caso contrario
 // mostra a pagina home por padrao
-if(!isset($_GET['p']) || strlen($_GET['p']) == 0 ) $pagina = 'home';
+if(!isset($_GET['p']) || strlen($_GET['p']) == 0 )
+{
+    $pagina = 'home';
+}
+else
+{
+    $pagina = $_GET['p'];
+}
 ?>
 
 <!doctype html>
