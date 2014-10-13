@@ -1,5 +1,7 @@
 <?php
 date_default_timezone_set('America/Sao_Paulo');
+ini_set('display_errors', true);
+error_reporting(E_ALL | E_STRICT);
 
 // Se a variavel existir ou não estiver em branco mostra a página escolhida, caso contrario
 // mostra a pagina home por padrao

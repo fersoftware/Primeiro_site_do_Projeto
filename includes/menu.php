@@ -16,6 +16,7 @@ switch($_GET['p']){
                 <?
 
                 $pag = $_GET['p'];
+                $active_page = '';
 
                 //Se a pagina nao existir, nao ativa o menu
                 if(!file_exists('includes/'.$pag.'.php'))
