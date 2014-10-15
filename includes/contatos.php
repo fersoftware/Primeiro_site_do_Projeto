@@ -1,4 +1,4 @@
-<?
+<?php
 $method = $_SERVER['REQUEST_METHOD'];
 
 if($method == 'POST')
@@ -16,20 +16,20 @@ if($method == 'POST')
         <h3>Dados Enviados com Sucesso!</h3>
         <h4>Abaixo seguem os dados que você enviou.</h4>
         <p>
-            <b>Nome:</b> <?= $_POST['nome']?><br>
-            <b>Sobrenome:</b> <?= $_POST['sobrenome']?><br>
-            <b>Email:</b> <?= $_POST['email']?><br>
-            <b>Assunto:</b> <?= $_POST['assunto']?><br>
-            <b>Mensagem:</b> <?= $_POST['mensagem']?><br>
+            <b>Nome:</b> <?php echo  $_POST['nome']?><br>
+            <b>Sobrenome:</b> <?php echo  $_POST['sobrenome']?><br>
+            <b>Email:</b> <?php echo  $_POST['email']?><br>
+            <b>Assunto:</b> <?php echo  $_POST['assunto']?><br>
+            <b>Mensagem:</b> <?php echo  $_POST['mensagem']?><br>
 
         </p>
         <br><a href="?p=home">Clique Aqui para Retornar </a>
     </div>
-<?
+<?php
 }
 ?>
 <link class="cssdeck" rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-<?
+<?php
 // Voce vai desaparecer na marra
 if(!isset($esconda)) {
     ?>
@@ -63,7 +63,7 @@ if(!isset($esconda)) {
             </div>
         </form>
     </div>
-<?
+<?php
 }
 ?>
 <script type="text/javascript">

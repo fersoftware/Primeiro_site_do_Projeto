@@ -1,21 +1,19 @@
-<?
-//correção, deixando menu ativo na pagina certa
-
-switch($_GET['p']){
-
-    case "Home":
-}
-
-
-
-?>
 <div class="navbar">
     <div class="navbar-inner">
         <div class="container">
             <ul class="nav">
-                <?
+                <?php
 
-                $pag = $_GET['p'];
+                if(isset($_GET['p']))
+                {
+                    $pag = $_GET['p'];
+                }
+                else
+                {
+                    $pag = 'home';
+                }
+
+
                 $active_page = '';
 
                 //Se a pagina nao existir, nao ativa o menu

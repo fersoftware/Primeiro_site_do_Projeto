@@ -1,3 +1,3 @@
 <div class="footer">
-    <p>© Todos os direitos reservados <?=date('Y')?></p>
+    <p>© Todos os direitos reservados <?php echo date('Y')?></p>
 </div>

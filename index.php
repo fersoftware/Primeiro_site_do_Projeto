@@ -27,10 +27,10 @@ else
 
     <div class="masthead">
         <h3 class="muted">Projeto Simples</h3>
-        <? require_once('includes/menu.php'); ?>
+        <?php require_once('includes/menu.php'); ?>
     </div>
 
-    <?
+    <?php
     //Se a pagina nao existir, exibe que a pagina nao foi encontrada
     if(!file_exists('includes/'.$pagina.'.php'))
     {
@@ -42,7 +42,7 @@ else
     ?>
 
     <hr>
-    <? require_once('includes/rodape.php'); ?>
+    <?php require_once('includes/rodape.php'); ?>
 
 </div>
 </body>
