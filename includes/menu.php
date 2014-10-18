@@ -4,48 +4,24 @@
             <ul class="nav">
                 <?php
 
-                if(isset($_GET['p']))
-                {
-                    $pag = $_GET['p'];
-                }
-                else
-                {
-                    $pag = 'home';
-                }
+                //Aprendendo a usar array_walk
 
+                $pages = ['Home','Empresa','Produtos','Servicos', 'Contatos'];
 
-                $active_page = '';
+                array_walk($pages,function ($x) use($pagina){
 
-                //Se a pagina nao existir, nao ativa o menu
-                if(!file_exists('includes/'.$pag.'.php'))
-                {
-                    $active_page = -1;
-                }
+                        $content = "<a href='".strtolower($x)."'>".$x."</a>";
+                        $li_str = "<li>" . $content . "</li>";
 
-                if(!$active_page == -1)
-                {
-                    if(isset($_GET['a']))
-                    {
-                        $active_page = $_GET['a'];
+                        if(strtolower($x) == $pagina)
+                        {
+                            $li_str = "<li class='active'>" . $content . "</li>";
+                        }
+
+                        echo $li_str;
                     }
-                }
+                );
 
-                $pages = array();
-                $pages[0] = '<a href="?p=home&a=0">Home</a>';
-                $pages[1] = '<a href="?p=empresa&a=1">Empresa</a>';
-                $pages[2] = '<a href="?p=produtos&a=2">Produtos</a>';
-                $pages[3] = '<a href="?p=servicos&a=3">Servicos</a>';
-                $pages[4] = '<a href="?p=contatos&a=4">Contatos</a>';
-
-
-                foreach($pages as $page=>$content){
-                    $li_str = '<li>';
-                    if($page == $active_page){
-                        $li_str = '<li class="active">';
-                    }
-                    $li_str .= $content.'</li>';
-                    echo $li_str;
-                }
                 ?>
             </ul>
         </div>

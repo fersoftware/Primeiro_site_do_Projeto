@@ -3,15 +3,29 @@ date_default_timezone_set('America/Sao_Paulo');
 ini_set('display_errors', true);
 error_reporting(E_ALL | E_STRICT);
 
-// Se a variavel existir ou não estiver em branco mostra a página escolhida, caso contrario
-// mostra a pagina home por padrao
-if(!isset($_GET['p']) || strlen($_GET['p']) == 0 )
+$caminho = parse_url("HTTP://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+$rota = substr($caminho['path'],1,strlen($caminho['path'])); // tira a primeira / <-(barra)
+$separa = explode('-', $rota);
+
+$pagina = isset($separa[0]) ? $separa[0] : 'home';
+$menuAtivo = isset($separa[1]) ? $separa[1] : -1;
+
+
+function verificaExistencia($pagina)
 {
-    $pagina = 'home';
-}
-else
-{
-    $pagina = $_GET['p'];
+    //Se não for digitada nenhum pagina a home será a padrao
+    if(strlen($pagina) == 0 )
+    {
+        $pagina = 'home';
+    }
+
+    //Se não existir mostrara pagina nao encontrada
+    if(!file_exists('includes/'.$pagina.'.php'))
+    {
+        $pagina = 'pagina-nao-encontrada';
+    }
+
+    return $pagina;
 }
 ?>
 
@@ -26,18 +40,13 @@ else
 <div class="container">
 
     <div class="masthead">
-        <h3 class="muted">Projeto Simples</h3>
+        <h3 class="muted">Projeto Ajustando Rotas</h3>
         <?php require_once('includes/menu.php'); ?>
     </div>
 
     <?php
-    //Se a pagina nao existir, exibe que a pagina nao foi encontrada
-    if(!file_exists('includes/'.$pagina.'.php'))
-    {
-        $pagina = 'pagina-nao-encontrada';
-    }
 
-    require_once('includes/'.$pagina.'.php');
+    require_once('includes/'.verificaExistencia($pagina).'.php');
 
     ?>
 
