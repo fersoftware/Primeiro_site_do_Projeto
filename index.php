@@ -4,12 +4,7 @@ ini_set('display_errors', true);
 error_reporting(E_ALL | E_STRICT);
 
 $caminho = parse_url("HTTP://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-$rota = substr($caminho['path'],1,strlen($caminho['path'])); // tira a primeira / <-(barra)
-$separa = explode('-', $rota);
-
-$pagina = isset($separa[0]) ? $separa[0] : 'home';
-$menuAtivo = isset($separa[1]) ? $separa[1] : -1;
-
+$pagina = substr($caminho['path'],1,strlen($caminho['path'])); // tira a primeira / <-(barra)
 
 function verificaExistencia($pagina)
 {
