@@ -3,7 +3,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 if($method == 'POST')
 {
-    //Gambeta, essa preula de formulário nao quer summir
+    //Gambeta, essa preula de formulário nao quer sumir
     //então eu mato na marra com IF
 
     $esconda = 1;

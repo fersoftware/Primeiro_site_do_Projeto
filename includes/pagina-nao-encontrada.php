@@ -1,2 +1,2 @@
 <h3>Desculpe! ERRO 404</h3>
-<p>Esta página não existe, <a href="?p=home"> clique aqui </a> para voltar para a HOME ou entred em contato com o nosso departamento de atendimento ao cliente</p>
+<p>Esta página não existe, <a href="home"> clique aqui </a> para voltar para a <b>HOME</b> ou entre em <a href="contatos">contato</a> com o nosso departamento de atendimento ao cliente</p>
